@@ -58,7 +58,7 @@ interface FormProps {
               disabled={isLoading}
               onChange={(event) => setBody(event.target.value)}
               value={body}
-              className="disabled:opacity-80 rounded-xl peer resize-none mt-3 w-full p-2 bg-neutral-800 ring-0 outline-none text-[15px] placeholder-neutral-500 text-white"
+              className="disabled:opacity-80 rounded-xl peer  mt-3 w-full p-4 bg-neutral-800 ring-0 outline-none text-[15px] placeholder-neutral-500 text-white"
               placeholder={placeholder}>
             </textarea>
             <hr 
@@ -69,8 +69,12 @@ interface FormProps {
           </div>
         </div>
       ) : (
-        <div className="py-8">
-          <h1 className="text-white text-2xl text-center mb-4 font-bold">Welcome to PostFeed</h1>
+        <div className="py-2">
+          <h1 className="text-white text-2xl text-center mb-4 font-bold">
+          👋 Welcome to PostFeed! 🚀
+          </h1>
+          <p className="text-white text-1xl mb-7 ">Discover the power of concise expression! PostFeed is your go-to destination for sharing thoughts, connecting with friends, and engaging with a vibrant community! 🌟</p>
+
           <div className="flex flex-row items-center justify-center gap-4">
             <Button label="Login" onClick={loginModal.onOpen} />
             <Button label="Register" onClick={registerModal.onOpen} secondary />

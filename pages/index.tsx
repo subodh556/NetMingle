@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <>
       <Header label="Home"/>
-      
+        
       <Form placeholder="Write a post"/>
-      <div className="text-customBlue text-xl font-bold p-4 px-6"> Previous Posts</div>
+      <div className="text-customBlue text-xl font-bold p-4 px-6"> New Posts </div>
       <PostFeed/>
     </>
   )

@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Header label="Home"/>
-      <Form placeholder="what's happening?"/>
+      <Form placeholder="Start writing a post"/>
       <PostFeed/>
     </>
   )

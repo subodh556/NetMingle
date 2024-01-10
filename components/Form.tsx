@@ -58,7 +58,7 @@ interface FormProps {
               disabled={isLoading}
               onChange={(event) => setBody(event.target.value)}
               value={body}
-              className="disabled:opacity-80 peer resize-none mt-3 w-full bg-black ring-0 outline-none text-[20px] placeholder-neutral-500 text-white"
+              className="disabled:opacity-80 rounded-xl peer resize-none mt-3 w-full p-2 bg-neutral-800 ring-0 outline-none text-[22px] placeholder-neutral-500 text-white"
               placeholder={placeholder}>
             </textarea>
             <hr 
@@ -70,7 +70,7 @@ interface FormProps {
         </div>
       ) : (
         <div className="py-8">
-          <h1 className="text-white text-2xl text-center mb-4 font-bold">Welcome to Twitter</h1>
+          <h1 className="text-white text-2xl text-center mb-4 font-bold">Welcome to PostFeed</h1>
           <div className="flex flex-row items-center justify-center gap-4">
             <Button label="Login" onClick={loginModal.onOpen} />
             <Button label="Register" onClick={registerModal.onOpen} secondary />

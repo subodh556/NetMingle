@@ -58,13 +58,13 @@ interface FormProps {
               disabled={isLoading}
               onChange={(event) => setBody(event.target.value)}
               value={body}
-              className="disabled:opacity-80 rounded-xl peer resize-none mt-3 w-full p-2 bg-neutral-800 ring-0 outline-none text-[22px] placeholder-neutral-500 text-white"
+              className="disabled:opacity-80 rounded-xl peer resize-none mt-3 w-full p-2 bg-neutral-800 ring-0 outline-none text-[15px] placeholder-neutral-500 text-white"
               placeholder={placeholder}>
             </textarea>
             <hr 
               className="opacity-0 peer-focus:opacity-100 h-[1px] w-full  border-neutral-800 transition"/>
             <div className="mt-4 flex flex-row justify-end">
-              <Button disabled={isLoading || !body} onClick={onSubmit} label="Tweet" />
+              <Button disabled={isLoading || !body} onClick={onSubmit} label="Post" />
             </div>
           </div>
         </div>

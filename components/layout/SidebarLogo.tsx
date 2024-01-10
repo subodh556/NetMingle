@@ -6,10 +6,19 @@ import Image from 'next/image';
 const SidebarLogo = () => {
   const router=useRouter();
   return (
-    <div  onClick={() => router.push('/')}
-      className="rounded-full h-30 w-30 p-4 flex items-center justify-center   cursor-pointer transition">
-            <Image src={'/images/post.png'} width={300} height={300} alt=""/>
+    <div>
+      <div className="relative rounded-full h-20 w-20 flex items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer lg:hidden">
+      <Image src={'/images/pp.png'} width={300} height={30} alt=""/>
+</div>
+      <div  onClick={() => router.push('/')}
+      className="relative hidden lg:flex items-row gap-4  p-4 rounded-full 
+      cursor-pointer items-center ">
+            <Image src={'/images/post.png'} width={300} height={30} alt=""/>
+      </div>
     </div>
+    
+    
+    
   )
 }
 

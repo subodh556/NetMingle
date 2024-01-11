@@ -12,6 +12,7 @@ import Avatar from './Avatar';
 import Button from './Button';
 
 import ImgUpload from './ImgUpload';
+import { useRouter } from 'next/router';
 
 interface FormProps {
   placeholder: string;
@@ -30,14 +31,14 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
   const [body, setBody] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [PostImage , setPostImage]=useState('');
-
+  const router =useRouter();
  
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
       
       const url = isComment ? `/api/comments?postId=${postId}` : '/api/posts';
-    
+      
       await axios.post(url, { body,PostImage });
       
       toast.success('Post created');
@@ -45,13 +46,14 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
       setBody('');
       mutatePosts();
       mutatePost();
+      router.push('/')
     } catch (error) {
       
       toast.error('Something went wrong');
     } finally {
       setIsLoading(false);
     }
-  }, [body, mutatePosts, isComment, postId, mutatePost,PostImage]);
+  }, [body, mutatePosts, isComment, postId, mutatePost,PostImage,router]);
 
   return (
     <div className="border-b-[1px] border-neutral-800 px-5 py-2">
@@ -61,7 +63,8 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
             <Avatar userId={currentUser?.id} />
           </div>
           <div className="w-full">
-            <ImgUpload value={PostImage} disabled={isLoading} onChange={(image) =>  setPostImage(image)} label="Upload image" />
+            {!isComment && (<ImgUpload value={PostImage} disabled={isLoading} onChange={(image) =>  setPostImage(image)} label="Upload image" />
+            )}
             
             <textarea
               disabled={isLoading}

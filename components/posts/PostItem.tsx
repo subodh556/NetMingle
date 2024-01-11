@@ -72,7 +72,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
               {createdAt}
             </span>
           </div>
-          <Image src={data?.image || '/images/post.png'} alt="ss" width={100} height={100}/>
+          {data?.image &&(<Image src={data?.image } className='mt-5' alt="" width={500} height={500}/>)}
           <div className="text-white font-extralight mt-4" dangerouslySetInnerHTML={{ __html: data.body }}></div>
          
           <div className="flex flex-row items-center mt-3 gap-10">

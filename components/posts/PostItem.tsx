@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
 import {  AiFillHeart, AiOutlineHeart, AiOutlineMessage } from 'react-icons/ai';
 import { formatDistanceToNowStrict } from 'date-fns';
-
+import Image from 'next/image';
 import useLoginModal from '@/hooks/useLoginModal';
 import useCurrentUser from '@/hooks/useCurrentUser';
 
@@ -72,9 +72,9 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
               {createdAt}
             </span>
           </div>
+          <Image src={data?.image || '/images/post.png'} alt="ss" width={100} height={100}/>
           <div className="text-white font-extralight mt-4" dangerouslySetInnerHTML={{ __html: data.body }}></div>
-          <div className="text-white font-extralight mt-4" dangerouslySetInnerHTML={{ __html: data.image }}></div>
-
+         
           <div className="flex flex-row items-center mt-3 gap-10">
             <div className="flex flex-row items-center text-neutral-500 gap-2 cursor-pointer transition hover:text-sky-500">
               <AiOutlineMessage size={20} />

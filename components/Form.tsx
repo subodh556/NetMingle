@@ -37,14 +37,16 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
       setIsLoading(true);
       
       const url = isComment ? `/api/comments?postId=${postId}` : '/api/posts';
-      
+    
       await axios.post(url, { body,PostImage });
       
       toast.success('Post created');
+      setPostImage('');
       setBody('');
       mutatePosts();
       mutatePost();
     } catch (error) {
+      
       toast.error('Something went wrong');
     } finally {
       setIsLoading(false);
@@ -59,7 +61,8 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
             <Avatar userId={currentUser?.id} />
           </div>
           <div className="w-full">
-            <ImgUpload value={PostImage} disabled={isLoading} onChange={(image) => setPostImage(image)} label="Upload image" />
+            <ImgUpload value={PostImage} disabled={isLoading} onChange={(image) =>  setPostImage(image)} label="Upload image" />
+            
             <textarea
               disabled={isLoading}
               onChange={(event) => setBody(event.target.value)}

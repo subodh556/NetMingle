@@ -8,7 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const { postId,PostImage } = req.query;
+    const { postId} = req.query;
 
     if (!postId || typeof postId !== 'string') {
       throw new Error('Invalid ID');

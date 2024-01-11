@@ -73,6 +73,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
             </span>
           </div>
           <div className="text-white font-extralight mt-4" dangerouslySetInnerHTML={{ __html: data.body }}></div>
+          <div className="text-white font-extralight mt-4" dangerouslySetInnerHTML={{ __html: data.image }}></div>
 
           <div className="flex flex-row items-center mt-3 gap-10">
             <div className="flex flex-row items-center text-neutral-500 gap-2 cursor-pointer transition hover:text-sky-500">

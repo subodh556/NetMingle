@@ -42,11 +42,12 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
       await axios.post(url, { body,PostImage });
       
       toast.success('Post created');
+      router.push('/')
       setPostImage('');
       setBody('');
       mutatePosts();
       mutatePost();
-      router.push('/')
+      
     } catch (error) {
       
       toast.error('Something went wrong');

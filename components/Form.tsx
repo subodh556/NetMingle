@@ -50,7 +50,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
       
     } catch (error) {
       
-      toast.error('Something went wrong');
+      toast.error('Image is Not Appropriate');
     } finally {
       setIsLoading(false);
     }

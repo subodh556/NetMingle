@@ -11,8 +11,7 @@ export default function Home() {
   return (
     <>
       <Header label="Home"/>
-        
-      <Form placeholder="Write a post"/>
+      
       <div className="text-customBlue text-xl font-bold p-4 px-6"> Recent Posts </div>
       <PostFeed/>
     </>

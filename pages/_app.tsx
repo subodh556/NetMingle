@@ -6,6 +6,7 @@ import RegisterModal from '@/components/Modals/RegisterModal'
 import { Toaster } from 'react-hot-toast';
 import { SessionProvider } from 'next-auth/react';
 import EditModal from '@/components/Modals/EditModal'
+import PostModal from '@/components/Modals/PostModal'
 
 export default function App({ Component, pageProps }: AppProps) {
   return( 
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <EditModal/>
       <RegisterModal/>
       <LoginModal/>
+      <PostModal/>
       <Layout>
       <Component {...pageProps} />
       </Layout>

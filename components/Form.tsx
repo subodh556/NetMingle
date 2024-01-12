@@ -12,7 +12,7 @@ import Avatar from './Avatar';
 import Button from './Button';
 
 import ImgUpload from './ImgUpload';
-import { useRouter } from 'next/router';
+
 
 interface FormProps {
   placeholder: string;
@@ -31,7 +31,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
   const [body, setBody] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [PostImage , setPostImage]=useState('');
-  const router =useRouter();
+  
  
   const onSubmit = useCallback(async () => {
     try {
@@ -39,11 +39,10 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
       
       const url = isComment ? `/api/comments?postId=${postId}` : '/api/posts';
       
-      await axios.post(url, { body,PostImage });
+      await axios.post(url, { body});
       
       toast.success('Post created');
-      router.push('/')
-      setPostImage('');
+      
       setBody('');
       mutatePosts();
       mutatePost();
@@ -54,7 +53,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
     } finally {
       setIsLoading(false);
     }
-  }, [body, mutatePosts, isComment, postId, mutatePost,PostImage,router]);
+  }, [body, mutatePosts, isComment, postId, mutatePost]);
 
   return (
     <div className="border-b-[1px] border-neutral-800 px-5 py-2">
@@ -64,8 +63,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
             <Avatar userId={currentUser?.id} />
           </div>
           <div className="w-full">
-            {!isComment && (<ImgUpload value={PostImage} disabled={isLoading} onChange={(image) =>  setPostImage(image)} label="Upload image" />
-            )}
+            
             
             <textarea
               disabled={isLoading}
@@ -108,7 +106,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
           <h1 className="text-white text-2xl text-center mb-4 font-bold">
           👋 Welcome to <span className='text-customBlue'>Post It!</span> 🚀
           </h1>
-          <p className="text-white text-1xl mb-7 ">Discover the power of concise expression! PostFeed is your go-to destination for sharing thoughts, connecting with friends, and engaging with a vibrant community! </p>
+          <p className="text-white text-1xl mb-7 ">Discover the power of concise expression! PostIt is your go-to destination for sharing thoughts, connecting with friends, and engaging with a vibrant community! </p>
 
           <div className="flex flex-row items-center justify-center gap-4">
             <Button label="Login" onClick={loginModal.onOpen} />

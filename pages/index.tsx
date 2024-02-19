@@ -11,13 +11,13 @@ import Porm from "@/components/Porm";
 
 export default function Home() {
   const currentUser=useCurrentUser();
-  const visi=currentUser?false:true;
+  
   
   return (
     <>
       <Header label="Home"/>
       
-      {visi && <Porm/>}
+      {currentUser.data?<></>: <Porm/>}
       <div className="text-customBlue text-xl font-bold p-4 px-6"> Recent Posts </div>
       <PostFeed/>
     </>

@@ -38,11 +38,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             id: postId,
           }
         });
-    
+        let na=currentUser.name;
         if (post?.userId) {
           await prisma.notification.create({
             data: {
-              body: 'Someone liked your post!',
+              body: `${na} liked your post!`,
               userId: post.userId
             }
           });

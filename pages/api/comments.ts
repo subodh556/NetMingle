@@ -30,11 +30,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           id: postId,
         }
       });
-  
       if (post?.userId) {
         await prisma.notification.create({
           data: {
-            body: 'Someone replied to your post!',
+            body: `@${currentUser.name} commented on your post`,
             userId: post.userId
           }
         });

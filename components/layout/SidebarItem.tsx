@@ -59,7 +59,7 @@ const SidebarItem:React.FC<SidebarItemProps> = ({
             </>}
             
             
-            {alert ? <BsDot className="text-sky-500 absolute -top-4 left-0" size={70} /> : null}
+            {alert?<BsDot className="text-sky-500 absolute -top-5 -left-2" size={70} />:null}
         </div>
     </div>  
   );

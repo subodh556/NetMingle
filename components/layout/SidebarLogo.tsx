@@ -13,7 +13,7 @@ const SidebarLogo = () => {
       <div  onClick={() => router.push('/')}
       className="relative hidden lg:flex items-row gap-4  p-1  mx-1 rounded-full 
       cursor-pointer items-center ">
-            <Image src={'/images/pi2.png'} width={140} height={30}  alt=""/>
+            <Image src={'/images/pi3.png'} width={140} height={30}  alt=""/>
       </div>
     </div>
     

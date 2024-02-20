@@ -1,13 +1,14 @@
-import { BsTwitter } from "react-icons/bs";
-
 import useNotifications from "@/hooks/useNotifications";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import { useEffect } from "react";
+import Avatar from "./Avatar";
+import useUser from "@/hooks/useUser";
 
 const NotificationsFeed = () => {
   const { data: currentUser, mutate: mutateCurrentUser } = useCurrentUser();
   const { data: fetchedNotifications = [] } = useNotifications(currentUser?.id);
-
+  const regex=/^\w+/;
+  const rege = /(?<=^\w+)\s+(.*)/;
   useEffect(() => {
     mutateCurrentUser();
   }, [mutateCurrentUser]);
@@ -21,15 +22,25 @@ const NotificationsFeed = () => {
   }
   
   return ( 
-    <div className="flex flex-col">
+    
+    <div className="flex flex-col ">
       {fetchedNotifications.map((notification: Record<string, any>) => (
-        <div key={notification.id} className="flex flex-row items-center p-6 gap-4 border-b-[1px] border-neutral-800">
-          
-          <p className="text-white">
-            {notification.body}
-            {notification.notuid}
+        
+        <div key={notification.id} className="flex flex-row items-center p-4 gap-3  border-neutral-800">
+          <div key={notification.notuid} className="flex flex-row gap-2 items-center ">
+                <Avatar userId={notification.notuid} />
+                  
+                  <p className=" text-cyan-200  items-center cursor-pointer ">@{notification.body.match(regex)[0]}</p>
+                  <p className="text-white">
+             {notification.body.replace(regex, "")}
+         
           </p>
+                
+                
+          </div>
+          
         </div>
+        
         ))}
     </div>
    );

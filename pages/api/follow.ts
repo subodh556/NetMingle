@@ -35,7 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       try {
           await prisma.notification.create({
             data: {
-              body: `${currentUser.name} started following you`,
+              body: `${currentUser.username} started following you`,
               userId,
               notuid:currentUser?.id
             }

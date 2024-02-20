@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { postId } = req.body;
 
     const { currentUser } = await serverAuth(req, res);
-
+    console.log(currentUser.name)
     if (!postId || typeof postId !== 'string') {
       throw new Error('Invalid ID');
     }
@@ -38,11 +38,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             id: postId,
           }
         });
-        let na=currentUser.name;
+        let na=currentUser?.name ? currentUser.name :""
         if (post?.userId) {
           await prisma.notification.create({
             data: {
-              body: `${na} liked your post!`,
+              body: `${currentUser.username} liked your post!`,
               userId: post.userId,
               notuid:currentUser?.id
             }

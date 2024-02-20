@@ -9,7 +9,7 @@ import useUser from "./useUser";
 const useFollow = (userId: string) => {
   const { data: currentUser, mutate: mutateCurrentUser } = useCurrentUser();
   const { mutate: mutateFetchedUser } = useUser(userId);
-
+  const {data:fetcheduser}=useUser(userId);
   const loginModal = useLoginModal();
 
   const isFollowing = useMemo(() => {
@@ -35,12 +35,12 @@ const useFollow = (userId: string) => {
       await request();
       mutateCurrentUser();
       mutateFetchedUser();
-
-      toast.success('Success');
+      let message=!isFollowing?`Following ${fetcheduser?.name}`:`UnFollowed ${fetcheduser?.name}`
+      toast.success(message);
     } catch (error) {
       toast.error('Something went wrong');
     }
-  }, [currentUser, isFollowing, userId, mutateCurrentUser, mutateFetchedUser, loginModal]);
+  }, [currentUser, isFollowing, userId, mutateCurrentUser, mutateFetchedUser, loginModal,fetcheduser]);
 
   return {
     isFollowing,

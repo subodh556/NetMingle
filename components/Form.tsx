@@ -41,7 +41,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
       
       await axios.post(url, { body});
       
-      toast.success('Post created');
+      toast.success('Comment added');
       
       setBody('');
       mutatePosts();

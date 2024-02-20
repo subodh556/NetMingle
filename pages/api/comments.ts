@@ -34,7 +34,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         await prisma.notification.create({
           data: {
             body: `@${currentUser.name} commented on your post`,
-            userId: post.userId
+            userId: post.userId,
+            notuid:currentUser?.id
           }
         });
   

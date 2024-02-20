@@ -43,7 +43,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           await prisma.notification.create({
             data: {
               body: `${na} liked your post!`,
-              userId: post.userId
+              userId: post.userId,
+              notuid:currentUser?.id
             }
           });
     

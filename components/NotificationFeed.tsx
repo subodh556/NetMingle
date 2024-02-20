@@ -26,7 +26,8 @@ const NotificationsFeed = () => {
         <div key={notification.id} className="flex flex-row items-center p-6 gap-4 border-b-[1px] border-neutral-800">
           
           <p className="text-white">
-            {notification?.body}
+            {notification.body}
+            {notification.notuid}
           </p>
         </div>
         ))}

@@ -2,9 +2,10 @@ import useNotifications from "@/hooks/useNotifications";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import { useEffect } from "react";
 import Avatar from "./Avatar";
-import useUser from "@/hooks/useUser";
+import { useRouter } from "next/router";
 
 const NotificationsFeed = () => {
+  const router=useRouter();
   const { data: currentUser, mutate: mutateCurrentUser } = useCurrentUser();
   const { data: fetchedNotifications = [] } = useNotifications(currentUser?.id);
   const regex=/^\w+/;
@@ -12,7 +13,7 @@ const NotificationsFeed = () => {
   useEffect(() => {
     mutateCurrentUser();
   }, [mutateCurrentUser]);
-
+  
   if (fetchedNotifications.length === 0) {
     return (
       <div className="text-neutral-600 text-center p-6 text-xl">
@@ -30,7 +31,7 @@ const NotificationsFeed = () => {
           <div key={notification.notuid} className="flex flex-row gap-2 items-center ">
                 <Avatar userId={notification.notuid} />
                   
-                  <p className=" text-cyan-200  items-center cursor-pointer ">@{notification.body.match(regex)[0]}</p>
+                  <p className=" text-cyan-200  items-center cursor-pointer " onClick={()=>{router.push(`/users/${notification.notuid}`)}}>@{notification.body.match(regex)[0]}</p>
                   <p className="text-white">
              {notification.body.replace(regex, "")}
          

@@ -35,8 +35,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title, body, a
     
   return (
     <>
-        <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-neutral-800 bg-opacity-70" >
-            <div className="relative w-full lg:w-2/5 my-6 mx-auto lg:max-w-2xl h-full lg:h-auto">
+        <div className="justify-center items-center flex overflow-x-hidden   fixed inset-0 z-50 outline-none focus:outline-none bg-neutral-800 bg-opacity-70 overflow-y-hidden " >
+            <div className="relative w-full lg:w-2/5 my-4 mx-auto lg:max-w-2xl h-full lg:h-auto">
                 <div className="h-full lg:h-auto border-0 rounded-lg shadow-lg  relative 
                     flex flex-col w-full  bg-black outline-none focus:outline-none ">
                         <div className="flex items-center justify-between p-5 rounded-t">

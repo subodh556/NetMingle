@@ -18,7 +18,9 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
   const router = useRouter();
   const loginModal = useLoginModal();
 
-  const { data: currentUser } = useCurrentUser();
+  const { data: currentUser} = useCurrentUser();
+  
+  
   const { hasLiked, toggleLike } = useLike({ postId: data.id, userId});
 
   const goToUser = useCallback((ev: any) => {
@@ -38,7 +40,6 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
     }
 
     toggleLike();
-
   }, [loginModal, currentUser,toggleLike]);
 
   const LikeIcon = hasLiked ? AiFillHeart : AiOutlineHeart;

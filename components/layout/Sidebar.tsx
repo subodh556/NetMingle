@@ -16,6 +16,12 @@ const Sidebar = () => {
     const {data:currentUser}=useCurrentUser();
     const items = [
         {
+          icon: FaUser,
+          label: 'Profile',
+          href: `/users/${currentUser?.id}`,
+          auth : true
+        },
+        {
           icon: BsHouseFill,
           label: 'Home',
           href: '/',
@@ -27,12 +33,7 @@ const Sidebar = () => {
           auth: true,
           alert: currentUser?.hasNotification
         },
-        {
-          icon: FaUser,
-          label: 'Profile',
-          href: `/users/${currentUser?.id}`,
-          auth : true
-        },
+        
     ]
   return (
     <div className="col-span-1 h-full pr-4 fixed md:pr-10">
